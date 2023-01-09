@@ -52,7 +52,7 @@ I'm developing using Unity 2019.1.9f1, it is recomended to use it if you are bui
 - exr
 - bmp
 
-## Future Feature List
+## (Previous) Future Feature List by finepointcgi
 - QuickSave - Will implement in settings, then you can set the folder to save the texture. This will be a persistent setting, that means you can close and open the program without lose the Quick Save path. *Planned for .41*
 - Copy to clipboard.
 - New UI*Planned for .50*
