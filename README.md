@@ -20,8 +20,7 @@ Make an issue and we can talk about it.
 - Switched build backend to IL2CPP
 - Enabled the Incremental Garbage Collector 
 - Added the Vulkan API to Linux
-- Building React based responsive UI - https://github.com/ReactUnity/core
-
+- (In Progress) React based responsive UI - https://github.com/ReactUnity/core
 
 ## Features added by finepointcgi
 ### Paste Images from clipboard on Linux
