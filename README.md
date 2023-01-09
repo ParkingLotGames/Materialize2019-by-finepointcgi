@@ -2,22 +2,28 @@
 Materialize is a program for converting images to materials.
 
 # Releases
-https://github.com/mitchelldmccollum/Materialize/releases
+https://github.com/ParkingLotGames/Materialize2019-by-finepointcgi/releases
 
-## Motivation
-I decided to maintain Materialize for Linux, Windows, and soon Mac.
+## Platforms
+Linux and Windows.
 
 ## Contact
 For sugestions, doubts or anything related to this tool.
 Make an issue and we can talk about it.
 
-## Using
-Double click on the Materalize.exe and it will open.
+# Building
+### Prerequisites
+Unity 2019.4.40f1 with IL2CPP module.
+NodeJS 18 LTS (if you need to modify the UI).
 
-## Building
-I'm developing using Unity 2019.1.9f1, it is recomended to use it if you are building it yourself. You can try to downgrade or upgrade with unity but it may break some of the code.
+## Changelog:
+### Switched build backend to IL2CPP
+### Enabled the Incremental Garbage Collector 
+### Added the Vulkan API to Linux
+### Building React based responsive UI - https://github.com/ReactUnity/core
 
-## Added features
+
+## Features added by finepointcgi
 ### Paste Images from clipboard on Linux
 - You can copy a file in your file browser (Tested with nautilus) and then press  the "P" close to the slot you want to paste.
 - **Highlight** - You can also press copy image on browser and it will paste also. This make it fast to take a image from internet
@@ -52,7 +58,8 @@ I'm developing using Unity 2019.1.9f1, it is recomended to use it if you are bui
 - exr
 - bmp
 
-## (Previous) Future Feature List by finepointcgi
+## (Previous) Future Feature List by finepointcgi, 
+Feel free to contribute to it but I don't think I can tackle these, I simply don't have the time, I'm updating it and sharing it because I need it for personal use. I can't make a full time commitment to this project, I'm just contributing what I can.
 - QuickSave - Will implement in settings, then you can set the folder to save the texture. This will be a persistent setting, that means you can close and open the program without lose the Quick Save path. *Planned for .41*
 - Copy to clipboard.
 - New UI*Planned for .50*
