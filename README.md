@@ -58,8 +58,8 @@ Make an issue and we can talk about it.
 - exr
 - bmp
 
-## (Previous) Future Feature List by finepointcgi, 
-Feel free to contribute to it but I don't think I can tackle these, I simply don't have the time, I'm updating it and sharing it because I need it for personal use. I can't make a full time commitment to this project, I'm just contributing what I can.
+## (Previous) Future Feature List by finepointcgi
+Feel free to contribute to it and I'll merge your work but I don't think I can tackle these, I simply don't have the time, I'm updating and sharing the project because I need it for personal use. I can't make a full time commitment to this project, I'm just contributing what I can.
 - QuickSave - Will implement in settings, then you can set the folder to save the texture. This will be a persistent setting, that means you can close and open the program without lose the Quick Save path. *Planned for .41*
 - Copy to clipboard.
 - New UI*Planned for .50*
