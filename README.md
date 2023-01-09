@@ -13,14 +13,14 @@ Make an issue and we can talk about it.
 
 # Building
 ### Prerequisites
-Unity 2019.4.40f1 with IL2CPP module.
-NodeJS 18 LTS (if you need to modify the UI).
+- Unity 2019.4.40f1 with IL2CPP module.
+- NodeJS 18 LTS (if you need to modify the UI).
 
 ## Changelog:
-### Switched build backend to IL2CPP
-### Enabled the Incremental Garbage Collector 
-### Added the Vulkan API to Linux
-### Building React based responsive UI - https://github.com/ReactUnity/core
+- Switched build backend to IL2CPP
+- Enabled the Incremental Garbage Collector 
+- Added the Vulkan API to Linux
+- Building React based responsive UI - https://github.com/ReactUnity/core
 
 
 ## Features added by finepointcgi
