@@ -5,8 +5,8 @@
 *[Bb]uilds/*/*_BackUpThisFolder_ButDontShipItWithYourGame/
 *[Bb]uilds/*/MonoBleedingEdge/
 *[Bb]uilds/*/*_Data/
-*[Bb]uilds/*/*.exe/
-*[Bb]uilds/*/*.dll/
+*[Bb]uilds/*/*.exe
+*[Bb]uilds/*/*.dll
 *[Bb]uilds/*linux*/
 *[Bb]uilds/*macos*/
 Assets/AssetStoreTools*
