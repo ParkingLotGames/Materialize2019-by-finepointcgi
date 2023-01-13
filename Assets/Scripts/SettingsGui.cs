@@ -25,7 +25,7 @@ public class SettingsGui : MonoBehaviour
     private const string SettingsKey = "Settings";
     public static SettingsGui Instance;
     private static readonly int FlipNormalY = Shader.PropertyToID("_FlipNormalY");
-    private bool _windowOpen;
+    //private bool _windowOpen;
 
     private Rect _windowRect = new Rect(Screen.width - 300, Screen.height - 320, 280, 600);
     public PostProcessGui PostProcessGui;
@@ -185,7 +185,7 @@ public class SettingsGui : MonoBehaviour
         {
             SaveSettings();
             SetNormalMode();
-            _windowOpen = false;
+            //_windowOpen = false;
         }
 
         GUI.DragWindow();

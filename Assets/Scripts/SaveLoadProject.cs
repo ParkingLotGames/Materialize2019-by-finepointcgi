@@ -181,9 +181,9 @@ public class SaveLoadProject : MonoBehaviour
         StartCoroutine(SaveAllTextures(pathToFile));
     }
 
-    public void SaveFile(string pathToFile, Texture2D textureToSave)
+    public async void SaveFileAsync(string pathToFile, Texture2D textureToSave)
     {
-        SaveTexture(textureToSave, pathToFile);
+        await SaveTexture(textureToSave, pathToFile);
     }
 
     public void PasteFile(MapType mapTypeToLoad)
@@ -257,7 +257,7 @@ public class SaveLoadProject : MonoBehaviour
     public void CopyFile(Texture2D textureToSave)
     {
 
-        SaveFile(Application.dataPath + "/temp.png", textureToSave);
+        SaveFileAsync(Application.dataPath + "/temp.png", textureToSave);
         //SaveFile(Application.persistentDataPath + "/temp.png",FileFormat.png,textureToSave, "" );
 
         try
@@ -327,8 +327,9 @@ public class SaveLoadProject : MonoBehaviour
     {
         await (SaveTexture(textureToSave, pathToFile + "." + extension));
     }
-
+    #pragma warning disable CS1998
     private async Task SaveTexture(Texture2D textureToSave, string pathToFile)
+    #pragma warning restore CS1998
     {
         if (!textureToSave || pathToFile.IsNullOrEmpty()) return;
         if (MainGui.Instance.ScaleTexture)

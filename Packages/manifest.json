@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "com.reactunity.core": "https://github.com/ReactUnity/core.git",
-    "com.reactunity.quickjs": "0.13.0",
-    "com.unity.collab-proxy": "1.14.18",
+    "com.yasirkula.dynamicpanels": "https://github.com/yasirkula/UnityDynamicPanels.git",
+    "com.parkinglotgames.tessellatedquads": "https://github.com/ParkingLotGames/Tessellated-Quads.git",
+    "com.parkinglotgames.hierarchywindowgroupheader": "https://github.com/ParkingLotGames/HierarchyWindowGroupHeader.git",
     "com.unity.ext.nunit": "1.0.6",
     "com.unity.ide.rider": "1.2.1",
     "com.unity.ide.visualstudio": "2.0.15",

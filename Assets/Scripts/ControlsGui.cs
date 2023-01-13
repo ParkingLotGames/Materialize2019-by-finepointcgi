@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ControlsGui : MonoBehaviour
 {
-    private bool _windowOpen;
+    //private bool _windowOpen;
 
     private Rect _windowRect = new Rect(Screen.width - 520, Screen.height - 320, 300, 600);
 
@@ -40,7 +40,7 @@ public class ControlsGui : MonoBehaviour
         GUI.Label(new Rect(offsetX, offsetY, 250, 30), "Middle Mouse Button + B");
         offsetY += 30;
 
-        if (GUI.Button(new Rect(offsetX + 160, offsetY, 120, 30), "Close")) _windowOpen = false;
+        //if (GUI.Button(new Rect(offsetX + 160, offsetY, 120, 30), "Close")) _windowOpen = false;
     }
     
     private void OnGUI()

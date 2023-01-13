@@ -76,7 +76,10 @@ CGPROGRAM
 // reads from normal: no
 // 1 texcoords actually used
 //   float2 _DiffuseMap
+
+#ifndef UNITY_PASS_FORWARDBASE
 #define UNITY_PASS_FORWARDBASE
+#endif
 #include "UnityCG.cginc"
 #include "Lighting.cginc"
 #include "UnityPBSLighting.cginc"

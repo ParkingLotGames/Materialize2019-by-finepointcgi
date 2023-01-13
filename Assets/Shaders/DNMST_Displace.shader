@@ -54,7 +54,9 @@ Shader "Custom/DNMST_Displace" {
 			#include "HLSLSupport.cginc"
 			#include "UnityShaderVariables.cginc"
 	
+			#ifndef UNITY_PASS_DEFERRED
 			#define UNITY_PASS_DEFERRED
+			#endif
 			#define TRIPLANAR
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
@@ -166,7 +168,7 @@ Shader "Custom/DNMST_Displace" {
 				  o.lmap.xy = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 				  #ifdef DIRLIGHTMAP_OFF
 				    o.lmapFadePos.xyz = (mul(unity_ObjectToWorld, v.vertex).xyz - unity_ShadowFadeCenterAndType.xyz) * unity_ShadowFadeCenterAndType.w;
-				    o.lmapFadePos.w = (-mul(UNITY_MATRIX_MV, v.vertex).z) * (1.0 - unity_ShadowFadeCenterAndType.w);
+				    o.lmapFadePos.w = (-UnityObjectToViewPos(v.vertex).z) * (1.0 - unity_ShadowFadeCenterAndType.w);
 				  #endif
 				#else
 				  o.lmap.xy = 0;

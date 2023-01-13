@@ -169,7 +169,9 @@ public class CommandListExecutor : MonoBehaviour
                     {
                         switch (thisCommand.MapType)
                         {
-                            case MapType.Height:
+                        #pragma warning disable CS4014
+
+                                case MapType.Height:
                                 _saveLoad.SaveTexture(thisCommand.Extension, _mainGui.HeightMap,
                                     thisCommand.FilePath);
                                 break;
@@ -196,6 +198,7 @@ public class CommandListExecutor : MonoBehaviour
                                 _mainGui.ProcessPropertyMap();
                                 _saveLoad.SaveTexture(thisCommand.Extension, _mainGui.PropertyMap,
                                     thisCommand.FilePath);
+
                                 break;
                             case MapType.DiffuseOriginal:
                                 break;

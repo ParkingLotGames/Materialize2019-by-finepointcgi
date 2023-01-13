@@ -1,35 +1,18 @@
 {
   "dependencies": {
-    "com.reactunity.core": {
-      "version": "https://github.com/ReactUnity/core.git",
+    "com.parkinglotgames.hierarchywindowgroupheader": {
+      "version": "https://github.com/ParkingLotGames/HierarchyWindowGroupHeader.git",
       "depth": 0,
       "source": "git",
-      "dependencies": {
-        "com.unity.editorcoroutines": "1.0.0",
-        "com.unity.nuget.newtonsoft-json": "3.0.2"
-      },
-      "hash": "d70d26f165655960f796a415b8852c7820e621cd"
+      "dependencies": {},
+      "hash": "926386e24796105ef0bd5f93b000388bdeea3f6b"
     },
-    "com.reactunity.quickjs": {
-      "version": "0.13.0",
+    "com.parkinglotgames.tessellatedquads": {
+      "version": "https://github.com/ParkingLotGames/Tessellated-Quads.git",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "com.unity.collab-proxy": {
-      "version": "1.14.18",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.editorcoroutines": {
-      "version": "1.0.0",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
+      "hash": "2daa9dd89776026729c57500fc465d46de5e7e4d"
     },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
@@ -59,13 +42,6 @@
     "com.unity.ide.vscode": {
       "version": "1.2.5",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.nuget.newtonsoft-json": {
-      "version": "3.0.2",
-      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -136,6 +112,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.yasirkula.dynamicpanels": {
+      "version": "https://github.com/yasirkula/UnityDynamicPanels.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "0d0a19d913191a33bff19e95d2794a4451f4d832"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

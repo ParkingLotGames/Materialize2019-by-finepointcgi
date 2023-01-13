@@ -6,6 +6,6 @@ public class FlipUIElement : MonoBehaviour
 {
     public void FlipUiElement(GameObject Obj)
     {
-        Obj.SetActive(!Obj.active);
+        Obj.SetActive(!Obj.activeInHierarchy);
     }
 }

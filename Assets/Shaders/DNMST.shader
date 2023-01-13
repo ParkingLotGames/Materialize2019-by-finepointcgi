@@ -40,8 +40,10 @@
 			
 			#pragma exclude_renderers nomrt
 			#pragma multi_compile_prepassfinal
+
+			#ifndef UNITY_PASS_DEFERRED
 			#define UNITY_PASS_DEFERRED
-			
+			#endif			
 			#include "HLSLSupport.cginc"
 			#include "UnityShaderVariables.cginc"
 			
