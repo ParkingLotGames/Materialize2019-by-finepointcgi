@@ -14,7 +14,9 @@ Make an issue and we can talk about it.
 
 # Building
 ### Prerequisites
-- Unity 2019.4.40f1 with IL2CPP module.
+- Unity 2019.4.40f1.
+- IL2CPP module for Linux or win_x64.
+- Remove Mono.Posix and Mono.WebBrowser from Assets/Plugins when building for win_x86 or macOS.
 
 ## Changelog:
 - Switched build backend to IL2CPP
