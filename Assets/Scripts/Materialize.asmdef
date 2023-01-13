@@ -1,0 +1,17 @@
+{
+    "name": "Materialize",
+    "references": [
+        "GUID:a65ab7e4507a42f4f8bc009183640e34",
+        "GUID:0caaed79738d51e4d81fadb59d40c71d",
+        "GUID:4af013e9af55d0242926a03e5c4f9d09"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
