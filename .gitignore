@@ -2,11 +2,11 @@
 [Tt]emp/
 [Oo]bj/
 *[Bb]uild/
-*[Bb]uilds/*win*/*_BackUpThisFolder_ButDontShipItWithYourGame/
-*[Bb]uilds/*win*/MonoBleedingEdge/
-*[Bb]uilds/*win*/*_Data/
-*[Bb]uilds/*win*/*.exe/
-*[Bb]uilds/*win*/*.dll/
+*[Bb]uilds/*/*_BackUpThisFolder_ButDontShipItWithYourGame/
+*[Bb]uilds/*/MonoBleedingEdge/
+*[Bb]uilds/*/*_Data/
+*[Bb]uilds/*/*.exe/
+*[Bb]uilds/*/*.dll/
 *[Bb]uilds/*linux*/
 *[Bb]uilds/*macos*/
 Assets/AssetStoreTools*
