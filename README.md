@@ -5,7 +5,8 @@ Materialize is a program for converting images to materials.
 https://github.com/ParkingLotGames/Materialize2019-by-finepointcgi/releases
 
 ## Platforms
-Linux and Windows.
+Linux and Windows x64 - IL2CPP
+macOS and Windows x86 - Mono
 
 ## Contact
 For sugestions, doubts or anything related to this tool.
