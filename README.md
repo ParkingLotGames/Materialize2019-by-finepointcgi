@@ -19,8 +19,8 @@ Make an issue and we can talk about it.
 ## Changelog:
 - Switched build backend to IL2CPP
 - Enabled the Incremental Garbage Collector 
-- Added the Vulkan API to Linux
-- (In Progress) React based responsive UI - https://github.com/ReactUnity/core
+- Added the Vulkan API as fallback on Linux
+- (In Progress) UnityDynamicPanels based UI - https://github.com/yasirkula/UnityDynamicPanels
 
 ## Features added by finepointcgi
 ### Paste Images from clipboard on Linux
