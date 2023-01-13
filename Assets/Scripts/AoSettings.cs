@@ -1,31 +1,72 @@
-#region
-
 using System.ComponentModel;
-
-#endregion
-
+//TODO: Convert to ScriptableObject
+/// <summary>
+/// AoSettings is a data container class that stores the settings for the ambient occlusion (AO) map generation process.
+/// </summary>
 public class AoSettings
 {
-    [DefaultValue(1.0f)] public float Blend;
+    /// <summary>
+    /// Blend is a float value representing the amount of AO map to be blended with the original height map.
+    /// </summary>
+    [DefaultValue(1.0f)]public float Blend;
 
-    [DefaultValue("1")] public string BlendText;
+    /// <summary>
+    /// BlendText is a string representation of the value of Blend.
+    /// </summary>
+    [DefaultValue("1")] 
+    public string BlendText;
 
-    [DefaultValue(100.0f)] public float Depth;
+    /// <summary>
+    /// Depth is a float value representing the depth of the AO map.
+    /// </summary>
+    [DefaultValue(100.0f)]
+    public float Depth;
 
-    [DefaultValue("100")] public string DepthText;
+    /// <summary>
+    /// DepthText is a string representation of the value of Depth.
+    /// </summary>
+    [DefaultValue("100")] 
+    public string DepthText;
 
-    [DefaultValue(0.0f)] public float FinalBias;
+    /// <summary>
+    /// FinalBias is a float value representing the bias of the final AO map.
+    /// </summary>
+    [DefaultValue(0.0f)] 
+    public float FinalBias;
 
-    [DefaultValue("0")] public string FinalBiasText;
+    /// <summary>
+    /// FinalBiasText is a string representation of the value of FinalBias.
+    /// </summary>
+    [DefaultValue("0")] 
+    public string FinalBiasText;
 
-    [DefaultValue(1.0f)] public float FinalContrast;
+    /// <summary>
+    /// FinalContrast is a float value representing the contrast of the final AO map.
+    /// </summary>
+    [DefaultValue(1.0f)] 
+    public float FinalContrast;
 
-    [DefaultValue("1")] public string FinalContrastText;
+    /// <summary>
+    /// FinalContrastText is a string representation of the value of FinalContrast.
+    /// </summary>
+    [DefaultValue("1")] 
+    public string FinalContrastText;
 
-    [DefaultValue(5.0f)] public float Spread;
+    /// <summary>
+    /// Spread is a float value representing the spread of the AO map.
+    /// </summary>
+    [DefaultValue(5.0f)] 
+    public float Spread;
 
-    [DefaultValue("50")] public string SpreadText;
+    /// <summary>
+    /// SpreadText is a string representation of the value of Spread.
+    /// </summary>
+    [DefaultValue("50")] 
+    public string SpreadText;
 
+    /// <summary>
+    /// AoSettings is a constructor that initializes the default values for the class properties.
+    /// </summary>
     public AoSettings()
     {
         Spread = 50.0f;

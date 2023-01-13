@@ -1,4 +1,54 @@
-﻿#region
+﻿/*TODO:
+ separate this script into single responsibility scripts, you could consider breaking it down into the following parts:
+
+A settings manager script that handles loading, saving, and updating the settings.
+A GUI script that handles displaying and updating the settings in the Unity editor.
+A script that handles communication with other objects in the scene, such as the MainGui and OBJRotator objects.
+Each of these scripts would have a specific responsibility and would be easier to maintain and understand.
+
+For the Settings Manager script, it could have methods like LoadSettings(), SaveSettings() and SetSettings().
+For the GUI script, it could have methods like DoMyWindow(), and it would be responsible for displaying the settings in the Unity editor and updating them.
+For the communication script, it could have methods like SetNormalMode(), SetFormat() that would handle the communication between the SettingsGui and other objects.
+
+You could also consider refactoring other scripts that are dependent on the SettingsGui class to remove their dependency on it, so that they only need to know about the settings they require and not the whole SettingsGui class.
+*/
+
+/*Description:
+Settings: A class that contains several fields such as FileFormat, NormalMapMaxStyle and NormalMapMayaStyle.
+
+SettingsGui: A MonoBehaviour that stores an instance of itself, Settings object, several GUI elements and some properties for the application.
+
+Start(): Loads the settings from PlayerPrefs when the script is started.
+
+LoadSettings(): Loads the settings from PlayerPrefs, if there are any. If not, it sets default values and saves it to PlayerPrefs.
+
+SaveSettings(): Serializes the current Settings object to a string and saves it to the PlayerPrefs.
+
+SetNormalMode(): Uses the NormalMapMayaStyle setting to set the global flip normal y variable in the shader.
+
+SetSettings(): Sets the settings to the elements in the application.
+
+DoMyWindow(int windowId): A callback function that creates a GUI window, it contains several toggles, labels and buttons to change the values of the settings.
+
+SetFrameRate(int FrameRate): This function sets the frame rate of the game to the value passed in as an argument.
+
+SetVsyncOn(): This function enables the vsync setting in the game.
+
+SaveDefaultFileFormat(): This function saves the default file format used to export textures.
+
+SaveAndClose(): This function saves the current settings and closes the settings menu.
+
+setDefaultPropertyMap(): This function sets the default property maps for the red, green, and blue channels.
+
+NormalMapMaxStyle(bool Bool): This function sets the normal map style to 'Max Style' if the passed in boolean is true, otherwise, it sets it to 'Maya Style'.
+
+NormalMapMayaStyle(bool Bool): This function sets the normal map style to 'Maya Style' if the passed in boolean is true, otherwise, it sets it to 'Max Style'.
+
+SetPostProcessing(bool Bool): This function enables or disables post processing effects in the game based on the passed in boolean.
+
+SetHideUI(bool Bool): This function allows or disallows hiding the UI when the object is rotated based on the passed in boolean.
+*/
+#region
 
 using System.IO;
 using System.Xml.Serialization;
@@ -12,7 +62,7 @@ public class Settings
     public bool NormalMapMaxStyle;
     public bool NormalMapMayaStyle;
 
-    public bool PostProcessEnabled;
+    //public bool PostProcessEnabled;
     public PropChannelMap PropBlue;
     public PropChannelMap PropGreen;
 
@@ -28,7 +78,7 @@ public class SettingsGui : MonoBehaviour
     //private bool _windowOpen;
 
     private Rect _windowRect = new Rect(Screen.width - 300, Screen.height - 320, 280, 600);
-    public PostProcessGui PostProcessGui;
+    //public PostProcessGui PostProcessGui;
     [HideInInspector] public Settings Settings = new Settings();
     public ObjRotator OBJRotator;
     public GameObject SettingsMenu;
@@ -55,7 +105,7 @@ public class SettingsGui : MonoBehaviour
         {
             Settings.NormalMapMaxStyle = true;
             Settings.NormalMapMayaStyle = false;
-            Settings.PostProcessEnabled = true;
+            //Settings.PostProcessEnabled = true;
             Settings.PropRed = PropChannelMap.None;
             Settings.PropGreen = PropChannelMap.None;
             Settings.PropBlue = PropChannelMap.None;
@@ -88,10 +138,10 @@ public class SettingsGui : MonoBehaviour
     {
         SetNormalMode();
 
-        if (Settings.PostProcessEnabled)
-            PostProcessGui.PostProcessOn();
-        else
-            PostProcessGui.PostProcessOff();
+        //if (Settings.PostProcessEnabled)
+            //PostProcessGui.PostProcessOn();
+        //else
+            //PostProcessGui.PostProcessOff();
 
         var mainGui = MainGui.Instance;
         mainGui.PropRed = Settings.PropRed;
@@ -126,8 +176,8 @@ public class SettingsGui : MonoBehaviour
 
         offsetY += 30;
 
-        Settings.PostProcessEnabled = GUI.Toggle(new Rect(offsetX, offsetY, 280, 30), Settings.PostProcessEnabled,
-            " Enable Post Process By Default");
+        //Settings.PostProcessEnabled = GUI.Toggle(new Rect(offsetX, offsetY, 280, 30), Settings.PostProcessEnabled,
+            //" Enable Post Process By Default");
 
         offsetY += 20;
         GUI.Label(new Rect(offsetX, offsetY, 250, 30), "Limit Frame Rate");
@@ -237,7 +287,7 @@ public class SettingsGui : MonoBehaviour
 
     public void SetPostProcessing(bool Bool)
     {
-        Settings.PostProcessEnabled = Bool;
+        //Settings.PostProcessEnabled = Bool;
     }
     public void SetHideUI(bool Bool) {
         OBJRotator.AllowHideUI = Bool;

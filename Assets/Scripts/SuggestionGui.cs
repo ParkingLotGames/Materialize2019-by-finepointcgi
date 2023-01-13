@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine;
 
 #endregion
-
+// TODO: Scrap this and make it open a PR in Github
 public class SuggestionGui : MonoBehaviour
 {
     private const string StringEmail = "";

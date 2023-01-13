@@ -1,19 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+///  MouseWatcher class is a script that implements the IPointerEnterHandler and IPointerExitHandler interfaces to detect when the mouse pointer enters or exits the object this script is attached to.
+/// </summary>
 public class MouseWatcher : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    /// <summary>
+    /// This function is called when the mouse pointer enters the object this script is attached to.
+    /// </summary>
+    /// <param name="eventData">Data of the pointer event</param>
     public void OnPointerEnter(PointerEventData eventData)
     {
-        this.gameObject.SetActive(true);
-        
+        this.gameObject.SetActive(true); // Enable the gameObject
     }
 
-    //Detect when Cursor leaves the GameObject
+    /// <summary>
+    /// This function is called when the mouse pointer exits the object this script is attached to.
+    /// </summary>
+    /// <param name="eventData">Data of the pointer event</param>
     public void OnPointerExit(PointerEventData eventData)
     {
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false); // Disable the gameObject
     }
 }

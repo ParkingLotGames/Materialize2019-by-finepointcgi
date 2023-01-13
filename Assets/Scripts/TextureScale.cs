@@ -1,5 +1,28 @@
 ﻿// Only works on ARGB32, RGB24 and Alpha8 textures that are marked readable
 
+/*Description: The TextureScale script is a class that provides methods for scaling a texture using either point sampling or bilinear interpolation.
+
+The main two methods that the user can interact with are the "Point" and "Bilinear" methods, which take a Texture2D, width and height as arguments, and returns a scaled Texture2D.
+
+The Point method uses point sampling to scale the texture, this means it takes the color of the closest pixel to the corresponding point in the new image. This method is fast but can result in a noticeable loss of quality.
+
+The Bilinear method uses bilinear interpolation to scale the texture. This method takes the color values of the four closest pixels to a point in the new image and interpolates them to get the final color value. This method is slower than point sampling but generally results in a higher-quality image.
+
+The ThreadData class is used to store information about the start and end positions of a thread, it is used to divide the task of scaling the texture across multiple threads.
+
+The PointScale and BilinearScale methods are both used to perform the scaling operation. The PointScale method uses point sampling while the BilinearScale method uses bilinear interpolation.
+
+The ColorLerpUnclamped method is used to interpolate between two colors. It takes two color values and a float value between 0 and 1 as arguments, and returns a color that is interpolated between the two input colors based on the float value.
+
+The script makes use of threading to perform the scaling operation in parallel across multiple threads, this can greatly improve performance for large texture. */
+
+/* TODO: Mayba*
+One way to separate the script into single responsibility scripts is to create separate classes for each distinct functionality.
+For example, you could create a class called "TextureScaler" that contains the Point and Bilinear methods, and the ThreadData, texColors, newColors, w, ratioX, ratioY, w2, finishCount and mutex fields.
+Then, you could create another class called "ThreadHelper" that contains the PointScale and BilinearScale methods, and the ThreadedScale method could be refactored to utilize this new class.
+Additionally, you could extract the logic for setting the properties of the texture object into its own class.
+*/
+
 using System.Threading;
 using UnityEngine;
 

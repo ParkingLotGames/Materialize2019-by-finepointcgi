@@ -1,4 +1,35 @@
-﻿#region
+﻿/* Description:
+ Creates an ambient occlusion (AO) map from a normal map.
+
+GetValues and SetValues are used to get and set the settings for the AO map creation process.
+InitializeSettings is used to initialize the settings with default values.
+Start is called when the script is first initialized, it sets up materials and calls InitializeSettings
+DoStuff sets a flag to indicate that the AO map creation process should start.
+NewTexture sets a flag to indicate that new textures should be initialized.
+Update is called every frame, it processes the normal map to create the AO map, the AO map is then blended with the height map, and the final AO map is rendered on the test object.
+DoMyWindow is a GUI function that creates a window for the user to adjust settings for the AO map creation process.
+InitializeTextures creates the textures and render textures required for the AO map creation process.
+Close is called when the window is closed, it releases the textures and render textures created.
+CleanupTexture releases a single texture.
+CleanupTextures releases all the textures created by the script.
+ProcessAo is a coroutine that creates the AO map.
+ProcessNormalDepth is a coroutine that processes the normal map to create the AO map and blends it with the height map.
+*/
+/* TODO:
+ How this script could be separated:
+
+GUI management: Move the code responsible for creating and managing the GUI elements, such as the DoMyWindow method and the variables related to the GUI window's position, into a separate script.
+
+Texture processing: Move the code responsible for processing textures, such as the ProcessAo, ProcessNormalDepth, and InitializeTextures methods, into a separate script. This script would handle all of the logic related to creating and manipulating textures, such as creating new textures, initializing textures, and processing normal and depth maps.
+
+Settings management: Move the code responsible for managing the settings of the script, such as the GetValues, SetValues, and InitializeSettings methods, into a separate script. This script would handle all of the logic related to storing, retrieving, and initializing settings.
+
+Material management: Move the code responsible for managing the materials of the script, such as the ThisMaterial variable, into a separate script. This script would handle all of the logic related to setting the properties of the material, such as the blending amount, image size, and final contrast.
+
+Coroutine management: Move the code responsible for managing the coroutines, such as the StartCoroutine(ProcessNormalDepth()) method, into a separate script. This script would handle all of the logic related to starting and stoping the coroutines
+*/
+
+#region
 
 using System.Collections;
 using UnityEngine;

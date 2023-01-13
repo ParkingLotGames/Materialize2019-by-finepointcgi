@@ -1,4 +1,8 @@
-﻿#region
+﻿/* This class is a simple GUI class that displays a window with control information on it.
+ * It is using Unity's GUI system to draw the window and its contents.
+ * The window will display the controls of the application, such as how to rotate the model, move the model, zoom in/out, rotate the light, and rotate the background.
+ * The window will be closed when the user clicks the "Close" button.*/
+#region
 
 using UnityEngine;
 
@@ -6,10 +10,19 @@ using UnityEngine;
 
 public class ControlsGui : MonoBehaviour
 {
+    /// <summary>
+    /// A flag indicating whether the window is currently open or not
+    /// </summary>
     //private bool _windowOpen;
-
+    /// <summary>
+    /// A rectangle representing the position and size of the window
+    /// </summary>
     private Rect _windowRect = new Rect(Screen.width - 520, Screen.height - 320, 300, 600);
 
+    /// <summary>
+    /// Draws the window in OnGUI method
+    /// </summary>
+    /// <param name="windowId"></param>
     private void DoMyWindow(int windowId)
     {
         const int offsetX = 10;
@@ -40,9 +53,9 @@ public class ControlsGui : MonoBehaviour
         GUI.Label(new Rect(offsetX, offsetY, 250, 30), "Middle Mouse Button + B");
         offsetY += 30;
 
-        //if (GUI.Button(new Rect(offsetX + 160, offsetY, 120, 30), "Close")) _windowOpen = false;
+       // if (GUI.Button(new Rect(offsetX + 160, offsetY, 120, 30), "Close")) _windowOpen = false;
     }
-    
+
     private void OnGUI()
     {
         //_windowRect = new Rect(Screen.width - 480, Screen.height - 370, 170, 280);

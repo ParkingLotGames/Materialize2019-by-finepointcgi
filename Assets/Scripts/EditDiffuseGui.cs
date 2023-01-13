@@ -1,3 +1,43 @@
+/*
+ * Description:
+The EditDiffuseGui class is a MonoBehaviour class that has several methods and properties for allowing the user to edit the diffuse settings of a project object in Unity. It has several render textures and materials to blit the rendered image.
+
+The EditDiffuseGui class has several methods:
+
+GetValues method is used to get the current values of the EditDiffuseSettings and store them in a ProjectObject class.
+SetValues method is used to set the values of the EditDiffuseSettings class from a ProjectObject class.
+InitializeSettings method is used to initialize the EditDiffuseSettings class.
+Start method is used to initialize the material and other variables.
+DoStuff method is used to apply the settings to the material.
+NewTexture method is used to create a new texture for the diffuse map.
+Update method is used to update the material properties and apply the new texture.
+DoMyWindow method is used to draw the GUI window for the user to edit the settings.
+OnGUI method is used to handle the GUI events.
+Close method is used to close the window and clean up the textures.
+CleanupTexture method is used to clean up the texture.
+CleanupTextures method is used to clean up the render textures.
+InitializeTextures method is used to initialize the render textures.
+It has several properties such as Slider, BlurContrast, LightMaskPow, LightPow, DarkMaskPow, DarkPow, HotSpot, DarkSpot, FinalContrast, FinalBias, ColorLerp, Saturation, ImageSize, MainTex, BlurTex,AvgTex, BlurSpread, BlurSamples, BlurDirection. These are used to identify the property of the shader that's being applied.
+It also has a reference to MainGuiScript and TestObject, this is a reference to the GameObject and its script that's being used.
+It also has a reference to ThisMaterial, which is the material that's being modified by the script.
+The ProcessDiffuse() method is a coroutine that takes the original diffuse map and applies a set of image processing techniques on it to generate a new, modified diffuse map. It does this by using a material with a specific shader that can perform these processing techniques. The material is set up with various properties such as the original diffuse map, a blurred version of the map, an average color map, and various parameters for the processing techniques (e.g. blur contrast, light/dark mask power, hot/dark spot, final contrast, color lerp, saturation). The method then uses the Graphics.Blit method to render the modified diffuse map to a RenderTexture, which is then read and applied to a Texture2D object. The method then waits for 0.1 seconds and cleans up the RenderTexture.
+
+The ProcessBlur() method is a coroutine that processes the blur of the diffuse map. It does this by creating a new RenderTexture, then setting up the material with the appropriate properties for blurring the image. It then uses the Graphics.Blit method to perform blurring on the original diffuse map by repeatedly applying a horizontal and vertical blur pass to the image. The blurred image is then applied to the _blurMap variable, which is then used in the ProcessDiffuse() method.
+
+The ProcessBlur() method is a coroutine that generates an average color map of the diffuse map by repeatedly applying a blur pass to the image until it reaches a specified number of samples. The average color map is then used in the ProcessDiffuse() method.
+
+ */
+/*TODO:
+ * One way to separate the responsibilities of this script would be to create separate scripts for each major functionality it currently handles. For example:
+
+Create a script called "EditDiffuseSettingsHandler" that would handle initializing, getting and setting the "EditDiffuseSettings" object, as well as any other functionality related to that object.
+
+Create a script called "EditDiffuseRenderer" that would handle all of the rendering functionality, such as the ProcessDiffuse and ProcessBlur methods, as well as any other rendering-related functionality.
+
+Create a script called "EditDiffuseUI" that would handle all the UI functionality, such as the OnGUI method, as well as any other UI-related functionality.
+
+Create a script called "EditDiffuse" that would handle the overall functionality of the script, such as initializing the material, textures, and other variables, as well as calling the methods from the other scripts.
+*/
 #region
 
 using System.Collections;
@@ -6,61 +46,139 @@ using UnityEngine;
 
 #endregion
 
+/// <summary>
+/// The EditDiffuseSettings class contains properties for various settings used in the diffuse map editing process.
+/// Each property has a default value and a string representation of that value for display in the editor.
+/// </summary>
 public class EditDiffuseSettings
 {
+    /// <summary>
+    /// The size of the blur used for averaging the color of the diffuse map.
+    /// </summary>
     [DefaultValue(50)] public int AvgColorBlurSize;
 
+    /// <summary>
+    /// The string representation of the <see cref="AvgColorBlurSize"/> property for display in the editor.
+    /// </summary>
     [DefaultValue("50")] public string AvgColorBlurSizeText;
 
+    /// <summary>
+    /// The contrast of the blur applied to the diffuse map.
+    /// </summary>
     [DefaultValue(0.0f)] public float BlurContrast;
 
+    /// <summary>
+    /// The string representation of the <see cref="BlurContrast"/> property for display in the editor.
+    /// </summary>
     [DefaultValue("0")] public string BlurContrastText;
 
+    /// <summary>
+    /// The size of the blur applied to the diffuse map.
+    /// </summary>
     [DefaultValue(20)] public int BlurSize;
 
+    /// <summary>
+    /// The text representation of the BlurSize property.
+    /// </summary>
     [DefaultValue("20")] public string BlurSizeText;
 
+    /// <summary>
+    /// The amount of color blending between the original and blurred image.
+    /// </summary>
     [DefaultValue(0.5f)] public float ColorLerp;
-
+    /// <summary>
+    /// The text representation of the ColorLerp property.
+    /// </summary>
     [DefaultValue("0.5")] public string ColorLerpText;
 
+    /// <summary>
+    /// The power of the dark mask effect.
+    /// </summary>
     [DefaultValue(0.5f)] public float DarkMaskPow;
-
+    /// <summary>
+    /// The text representation of the DarkMaskPow property.
+    /// </summary>
     [DefaultValue("0.5")] public string DarkMaskPowText;
 
+    /// <summary>
+    /// The power of the darkening effect.
+    /// </summary>
     [DefaultValue(0.0f)] public float DarkPow;
-
+    /// <summary>
+    /// The text representation of the DarkPow property.
+    /// </summary>
     [DefaultValue("0")] public string DarkPowText;
 
+    /// <summary>
+    /// The amount of darkening in the spots of the image.
+    /// </summary>
     [DefaultValue(0.0f)] public float DarkSpot;
-
+    /// <summary>
+    /// The text representation of the DarkSpot property.
+    /// </summary>
     [DefaultValue("0")] public string DarkSpotText;
 
+    /// <summary>
+    /// The bias of the final image after all adjustments are made.
+    /// </summary>
     [DefaultValue(0.0f)] public float FinalBias;
-
+    /// <summary>
+    /// The text representation of the FinalBias property.
+    /// </summary>
     [DefaultValue("0")] public string FinalBiasText;
 
+    /// <summary>
+    /// The contrast of the final image after all adjustments are made.
+    /// </summary>
     [DefaultValue(1.0f)] public float FinalContrast;
-
+    /// <summary>
+    /// The text representation of the FinalContrast property.
+    /// </summary>
     [DefaultValue("1")] public string FinalContrastText;
 
+    /// <summary>
+    /// The amount of brightening in the spots of the image.
+    /// </summary>
     [DefaultValue(0.0f)] public float HotSpot;
-
+    /// <summary>
+    /// The text representation of the HotSpot property.
+    /// </summary>
     [DefaultValue("0")] public string HotSpotText;
 
+    /// <summary>
+    /// The power of the light mask effect.
+    /// </summary>
     [DefaultValue(0.5f)] public float LightMaskPow;
 
+    /// <summary>
+    /// The text representation of the LightMaskPow property.
+    /// </summary
     [DefaultValue("0.5")] public string LightMaskPowText;
 
+    /// <summary>
+    /// The power of light in the image
+    /// </summary>
     [DefaultValue(0f)] public float LightPow;
 
+    /// <summary>
+    /// The string representation of the LightPow property
+    /// </summary>
     [DefaultValue("0")] public string LightPowText;
 
+    /// <summary>
+    /// The saturation of the final image
+    /// </summary>
     [DefaultValue(1.0f)] public float Saturation;
 
+    /// <summary>
+    /// The string representation of the Saturation property
+    /// </summary>
     [DefaultValue("1")] public string SaturationText;
 
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EditDiffuseSettings"/> class with default values
+    /// </summary>
     public EditDiffuseSettings()
     {
         AvgColorBlurSize = 50;
@@ -73,7 +191,7 @@ public class EditDiffuseSettings
         BlurContrastText = "0";
 
         LightMaskPow = 0.5f;
-        LightMaskPowText = "0";
+        LightMaskPowText = "0.5";
 
         LightPow = 0.0f;
         LightPowText = "0";
@@ -103,6 +221,7 @@ public class EditDiffuseSettings
         SaturationText = "1";
     }
 }
+
 
 public class EditDiffuseGui : MonoBehaviour
 {

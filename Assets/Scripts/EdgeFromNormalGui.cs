@@ -1,4 +1,56 @@
-﻿#region
+﻿/*
+Description:
+ The class EdgeFromNormalGui is a custom inspector for Unity that allows the user to adjust various settings related to edge detection on a given material or object. It uses Unity's built-in GUI system to create sliders and other UI elements for adjusting the various settings.
+
+The GetValues method takes a ProjectObject as input and copies the current values of the various settings from the inspector's UI into the ProjectObject.
+
+The SetValues method takes a ProjectObject as input and sets the values of the various settings in the inspector's UI to match the values stored in the ProjectObject.
+
+The InitializeSettings method is responsible for initializing the EdgeSettings object that is used to store the current values of the various settings.
+
+The Start method is called by Unity when the script is first initialized. It sets the default values of the settings, and initializes the various textures and materials used by the script.
+
+The DoStuff method is responsible for performing the edge detection process on the current texture and updating the material with the new edge map.
+
+The NewTexture method is called when the user wants to generate a new edge map for the current texture. It sets the _newTexture variable to true, which will trigger the DoStuff method to update the edge map.
+
+The Update method is called by Unity every frame. It checks if _newTexture is true, if it is, it will call the DoStuff method to update the edge map.
+
+The SetDefaultSliderValues method sets the default values for the various sliders in the inspector's UI.
+
+The SetWeightEqDefault, SetWeightEqDisplace, SetWeightEqSoft, and SetWeightEqTight methods are used to set the weight values for the blur filter used in the edge detection process.
+ The DoMyWindow function is responsible for creating the user interface for the EdgeFromNormalGui script using Unity's GUI system. It uses the GuiHelper.Slider method to create sliders for various settings, such as "Pre Contrast" and "Edge Amount", and assigns the new values to the corresponding variables in the _settings object. The function also creates labels and buttons for presets, such as "Default" and "Displace", that call methods such as SetWeightEqDefault and SetWeightEqDisplace to set the values of the settings to predefined values.
+
+The OnGUI function is a Unity event function that is called every frame. It calls DoMyWindow to create the UI and handle user input.
+
+The InitializeTextures function creates and initializes the various RenderTextures that are used to process the edge and normal maps.
+
+The Close function is called when the window is closed and it simply sets the _doStuff variable to false.
+
+The CleanupTexture function is called to clean up a single render texture.
+
+The CleanupTextures function is called to clean up all the render textures created by the script.
+
+The ProcessEdge function is responsible for processing the edge map using the settings specified by the user. It uses the _blitMaterial to perform the operations.
+
+The ProcessNormal function is responsible for processing the normal map using the settings specified by the user. It uses the _blitMaterial to perform the operations.
+ */
+
+/*TODO:
+The EdgeFromNormalGui script appears to have several responsibilities that could be separated into different scripts. Here are a few suggestions:
+
+GUI management: The OnGUI method and the DoMyWindow method are both responsible for creating and managing the GUI elements of the script. This logic could be moved to a separate script that is specifically responsible for handling the GUI.
+
+Shader properties management: The script sets various properties on the Shader and uses various Shader.PropertyToID constants. This logic could be moved to a separate script that is specifically responsible for managing the properties of the Shader.
+
+Render texture management: The script creates and manages multiple RenderTextures. This logic could be moved to a separate script that is specifically responsible for creating and managing RenderTextures.
+
+Edge and Normal processing: The script has methods like ProcessEdge and ProcessNormal which are responsible for processing the edge and normal maps respectively. These could be moved to a separate script that is specifically responsible for processing these maps.
+
+Settings management: The script has logic for managing the settings such as InitializeSettings, GetValues and SetValues methods. These could be moved to a separate script that is specifically responsible for managing the settings.
+*/
+
+#region
 
 using System.Collections;
 using UnityEngine;
