@@ -2,7 +2,13 @@
 [Tt]emp/
 [Oo]bj/
 *[Bb]uild/
-*[Bb]uilds/
+*[Bb]uilds/*win*/*_BackUpThisFolder_ButDontShipItWithYourGame/
+*[Bb]uilds/*win*/MonoBleedingEdge/
+*[Bb]uilds/*win*/*_Data/
+*[Bb]uilds/*win*/*.exe/
+*[Bb]uilds/*win*/*.dll/
+*[Bb]uilds/*linux*/
+*[Bb]uilds/*macos*/
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
