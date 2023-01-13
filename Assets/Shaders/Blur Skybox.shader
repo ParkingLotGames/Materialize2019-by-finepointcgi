@@ -1,4 +1,4 @@
-﻿Shader "Custom/Skybox" {
+﻿Shader "Custom/Blur Skybox" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Tint("Tint Color", Color) = (.5, .5, .5, .5)
@@ -156,7 +156,10 @@
 				float3 ambIBL = 0.0;
 				for (int i = 0; i < BlurKernelSamples; i++)
 				{
-					ambIBL += texCUBE(_Cubemap, half4(IN.texcoord + BlurKernel[i] * 0.0075 , 1.0)).xyz;
+					half4 blurUV = half4(IN.texcoord + BlurKernel[i] * 0.025,4);
+					//fixed4 col = texCUBE(_MainTex, i.worldRefl);
+
+					ambIBL += texCUBElod(_Cubemap,blurUV ).xyz;
 				}
 				ambIBL *= 1.0 / BlurKernelSamples;
 				half4 tex = texCUBE(_Cubemap, IN.texcoord);

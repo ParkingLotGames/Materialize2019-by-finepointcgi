@@ -56,7 +56,7 @@ public class MainGui : MonoBehaviour
 
     private bool _busySaving;
 
-    //private bool _clearTextures;
+    private bool _clearTextures;
     public bool _exrSelected { get; set; }
     public bool _pngSelected { get; set; }
     public bool _tgaSelected { get; set; }
@@ -464,7 +464,7 @@ public class MainGui : MonoBehaviour
     }
     public void ClearAllTexturesGUI()
     {
-        //_clearTextures = false;
+        _clearTextures = false;
         ClearAllTextures();
         CloseWindows();
         SetMaterialValues();
@@ -939,7 +939,7 @@ public class MainGui : MonoBehaviour
 
     private void SaveFile(string pathToFile)
     {
-        _saveLoadProjectScript.SaveFileAsync(pathToFile, _textureToSave);
+        _saveLoadProjectScript.SaveFile(pathToFile, _textureToSave);
     }
 
     // ReSharper disable once MemberCanBeMadeStatic.Local
@@ -1283,8 +1283,8 @@ public class MainGui : MonoBehaviour
     public void InvertMap()
     {
         Texture2D map = SmoothnessMap;
-        //var whitePixels = 0;
-        //var blackPixels = 0;
+        var whitePixels = 0;
+        var blackPixels = 0;
         for (int i = 0; i < map.width; i++) { 
 
             for (int j = 0; j < map.height; j++)
