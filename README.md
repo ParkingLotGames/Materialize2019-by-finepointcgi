@@ -14,7 +14,6 @@ Make an issue and we can talk about it.
 # Building
 ### Prerequisites
 - Unity 2019.4.40f1 with IL2CPP module.
-- NodeJS 18 LTS (if you need to modify the UI).
 
 ## Changelog:
 - Switched build backend to IL2CPP
