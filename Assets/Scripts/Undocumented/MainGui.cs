@@ -939,7 +939,7 @@ public class MainGui : MonoBehaviour
 
     private void SaveFile(string pathToFile)
     {
-        _saveLoadProjectScript.SaveFile(pathToFile, _textureToSave);
+        _saveLoadProjectScript.SaveFileAsync(pathToFile, _textureToSave);
     }
 
     // ReSharper disable once MemberCanBeMadeStatic.Local
